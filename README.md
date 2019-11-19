@@ -28,7 +28,7 @@ Example:
 
 `lib "linear algebra"`
 
-![](https://www.dropbox.com/s/97nm22i5huqq93q/example_search.png?dl=0)
+![](https://www.dropbox.com/s/97nm22i5huqq93q/example_search.png?dl=1)
 
 **Notes about search functionality:**
 
