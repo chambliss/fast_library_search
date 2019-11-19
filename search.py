@@ -77,7 +77,7 @@ def ask_user_which_file(search_result_list: List) -> os.PathLike:
     return full_file_path
 
 
-def open_file(root_dir: str_or_path, file: os.PathLike, app: str):
+def open_file(root_dir: str_or_path, file: str_or_path, app: str):
 
     """Opens the user-selected file in either Preview or Adobe Acrobat Reader."""
     
