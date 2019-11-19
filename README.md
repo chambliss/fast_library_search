@@ -9,7 +9,11 @@ The tool will open your books in Preview by default, but the flag `-a` will tell
 
 Note that **the tool expects PDFs** and I can't guarantee that it will work properly with other filetypes, unless they are natively supported by Preview/Acrobat.
 
-## Installation and Usage
+### Dependencies
+
+Requires Python 3.6+ (due to f-strings). No dependencies, this uses only standard library modules. 
+
+### Installation and Usage
 
 Add `search.py` and optionally `do_not_search.txt` to the root directory of your digital library. 
 
