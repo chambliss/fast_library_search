@@ -39,7 +39,7 @@ Example:
 - One-word queries can be written without quotes (such as `lib algorithms`), but multiple-word queries will need quotes.
 - Searching is currently case-insensitive and exact-match, but I might add fuzzy match support later.
 
-## Excluding Directories
+### Excluding Directories
 
 If you'd like to exclude directories, create a do_not_search.txt file with partial or full names of your directories as a newline-separated list, like so:
 
