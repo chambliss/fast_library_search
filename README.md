@@ -13,11 +13,13 @@ Note that **the tool expects PDFs** and I can't guarantee that it will work prop
 
 Requires Python 3.6+ (due to f-strings). No dependencies, this uses only standard library modules. 
 
+If your default Python installation invoked when running `python` at the command line is a lower version, you may need to tweak the bash function below to activate a virtualenv with 3.6+ prior to running the script.
+
 ### Installation and Usage
 
 Add `search.py` and optionally `do_not_search.txt` to the root directory of your digital library. 
 
-Then, depending on whether you use bash or zsh, you should open your .bashrc file or .zshrc file and add the function below. (This will generally be in your home directory; if you don't see it, use `CMD+SHIFT+.` to reveal hidden files.)
+Then, depending on whether you use bash or zsh, you should open your `.bashrc` file or `.zshrc` file and add the function below. (This will generally be in your home directory; if you don't see it, use `CMD+SHIFT+.` to reveal hidden files.)
 
 ```
 function lib() {
@@ -41,7 +43,7 @@ Example:
 
 ### Excluding Directories
 
-If you'd like to exclude directories, create a do_not_search.txt file with partial or full names of your directories as a newline-separated list, like so:
+If you'd like to exclude directories, create a `do_not_search.txt` file with partial or full names of your directories as a newline-separated list, like so:
 
 ```
 Extraneous Stuff
