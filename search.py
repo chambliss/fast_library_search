@@ -9,10 +9,13 @@ script functionality, but I wanted to keep everything in one place since it's fo
 my own convenience. Feel free to change that if you would like to repurpose the code.
 """
 
+# I normally exclude my papers dir from searches. If you'd like the option to
+# include or exclude papers, add the name of your papers directory here.
+PAPERS_DIR = "* Papers"
 str_or_path = Union[str, os.PathLike]
 
 
-def build_file_list(root_dir: str_or_path) -> List:
+def build_file_list(root_dir: str_or_path, include_papers: bool) -> List:
 
     """
     Builds the list of files to search by recursively searching directories 
@@ -29,8 +32,11 @@ def build_file_list(root_dir: str_or_path) -> List:
     if os.path.exists(no_search_path):
         with open(no_search_path) as f:
             no_search_dirs = [line.strip() for line in f.readlines()]
-    else: 
+    else:
         no_search_dirs = []
+
+    if include_papers:
+        no_search_dirs = [ns_dir for ns_dir in no_search_dirs if ns_dir != PAPERS_DIR]
 
     for dir_name, subdir_list, file_list in os.walk(root_dir):
 
@@ -80,7 +86,7 @@ def ask_user_which_file(search_result_list: List) -> os.PathLike:
 def open_file(root_dir: str_or_path, file: str_or_path, app: str):
 
     """Opens the user-selected file in either Preview or Adobe Acrobat Reader."""
-    
+
     subprocess.run(["open", "-a", app, file], cwd=root_dir, check=True)
 
 
@@ -89,12 +95,13 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("query")
     parser.add_argument("-a", dest="acro", action="store_true")  # default: stores False
+    parser.add_argument("-p", dest="include_papers", action="store_true")
     args = parser.parse_args()
 
     root_dir = "."
     app = "Adobe Acrobat Reader DC" if args.acro else "Preview"
 
-    files = build_file_list(root_dir)
+    files = build_file_list(root_dir, args.include_papers)
     search_results = search_file_list(args.query, files)
     selected_file = ask_user_which_file(search_results)
     open_file(root_dir, selected_file, app)
