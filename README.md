@@ -5,7 +5,7 @@ This is a simple command-line tool I wrote in an hour while I probably should ha
 
 Since the Mac OS's Spotlight search is occasionally bad, forcing me to navigate by GUI to find my books, I thought it would be fun to write up a faster way to search directly from the command line. This has the added benefit of *only* searching your books, so you never have to worry about irrelevant results from other folders.
 
-The tool will open your books in Preview by default, but the flag `-a` will tell it to open in Adobe Acrobat Reader DC, if you have that installed.
+The tool will open your books in Preview by default, but the flag `-a` will tell it to open in Adobe Acrobat Reader DC, if you have that installed. 
 
 Note that **the tool expects PDFs** and I can't guarantee that it will work properly with other filetypes, unless they are natively supported by Preview/Acrobat.
 
@@ -19,7 +19,9 @@ If your default Python installation invoked when running `python` at the command
 
 Add `search.py` and optionally `do_not_search.txt` to the root directory of your digital library. 
 
-Then, depending on whether you use bash or zsh, you should open your `.bashrc` file or `.zshrc` file and add the function below. (This will generally be in your home directory; if you don't see it, use `CMD+SHIFT+.` to reveal hidden files.)
+Then, depending on whether you use bash or zsh, you should open your `.bashrc` file or `.zshrc` file and add the function below. (This will generally be in your home directory; if you don't see it, use `CMD+SHIFT+.` to reveal hidden files.) 
+
+Keep in mind that when you edit .bashrc/.zshrc, you'll need to restart any active sessions before the change will take effect.
 
 ```
 function lib() {
@@ -50,3 +52,5 @@ Extraneous Stuff
 XXX
 Doggos
 ```
+
+You can also use `-p` to specify whether or not to search your papers directory, which can be specified through the constant `PAPERS_DIR` at the top of `search.py`.
