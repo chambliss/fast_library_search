@@ -24,7 +24,7 @@ Then, depending on whether you use bash or zsh, you should open your `.bashrc` f
 ```
 function lib() {
     cd ~/Dropbox/"Books and Resources" # REPLACE THIS WITH YOUR DESIRED DIRECTORY
-    python search.py $1 $2
+    python search.py $1 $2 $3
 }
 ```
 
